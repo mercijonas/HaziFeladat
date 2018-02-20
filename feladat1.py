@@ -18,14 +18,13 @@ def feladat_3(x):
         return 10
     else:
         return("A függvény nincs értelmezve")
-
-
 def main():
     print(feladat_3(2))
-
 if __name__=='__main__':
     main()
 
+
+    
 import math
 def feladat_4(a,b,c):
     m=min(a,b,c)
@@ -36,9 +35,10 @@ def feladat_4(a,b,c):
     return(m,maxi)
 def main():
     print(feladat_4(2,3,-9))
-
 if __name__=='__main__':
     main()
+    
+    
 
 def feladat_5(a,b,c,d):
     if d>=0:
@@ -70,9 +70,10 @@ def feladat_6(a,b,c):
         print("Nem képezhetik")
 def main():
     print(feladat_6(2,4,5))
-
 if __name__=='__main__':
     main()
+    
+    
 
 def feladat_8(x):
     if x<5:
@@ -90,14 +91,11 @@ def feladat_8b(a,b,c,d):
     else:
         Eabcd=4
     return Eabcd
-
-
-
 def main():
     print(feladat_8(-3),feladat_8b(2,4,7,9))
-
 if __name__=='__main__':
     main()
+
 
 def feladat_10(a,b):
     db=0
@@ -108,6 +106,5 @@ def feladat_10(a,b):
     return db
 def main():
     print(feladat_10(2001,2034))
-
 if __name__=='__main__':
     main()
