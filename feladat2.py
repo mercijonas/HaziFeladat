@@ -11,6 +11,25 @@ def main():
 if __name__=='__main__':
     main()
 
+def feladat_2(n):
+    li=[]
+    sz=1
+    while sz!=0:
+        db=1
+        for i in range(1,(sz//2)+1):
+            if sz%i==0:
+                db+=1
+        if db==2:
+            li.append(sz)
+        sz+=1
+        if len(li)==n:
+            break
+    print(li[-1])
+def main():
+    feladat_2(5)
+if __name__ == '__main__':
+    main()
+
 def feladat_3(n):
     for i in range(0,10000):
         k=2**i
@@ -19,6 +38,90 @@ def feladat_3(n):
 def main():
     print(feladat_3(513))
 if __name__=='__main__':
+    main()
+
+def feladat_4():
+    li=[]
+    for i in range(100,1000):
+        harmadik=i%10
+        elso=i//100
+        masodik=(i//10)%10
+        if elso!=masodik and elso!=harmadik and masodik!=harmadik:
+            li.append(i)
+    print(li)
+def main():
+    feladat_4()
+if __name__ == '__main__':
+    main()
+
+def osztok_szama(szam):
+    db=2
+    for i in range(2,szam//2+1):
+        if szam%i==0:
+            db+=1
+    return db
+
+def feladat_5(n):
+    max_db=1
+    for i in range(2,n+1):
+        if max_db<osztok_szama(i):
+            max_db=osztok_szama(i)
+            print(i)
+def main():
+    feladat_5(4)
+if __name__ == '__main__':
+    main()
+
+def feladat_6(x,y):
+    x_szamjegyek=[]
+    y_szamjegyek=[]
+    while x>0:
+        k=x%10
+        if k not in x_szamjegyek:
+            x_szamjegyek.append(k)
+        x=x//10
+    while y>0:
+        h=y%10
+        if h not in y_szamjegyek:
+            y_szamjegyek.append(h)
+        y=y//10
+    db=0
+    for i in x_szamjegyek:
+        if i in y_szamjegyek:
+            db+=1
+    if db>=2:
+        print("Rokonok")
+    else:
+        print("Nem rokonok")
+def main():
+    feladat_6(444,34)
+if __name__ == '__main__':
+    main()
+
+def feladat_7(x,y):
+    x_szamjegyek=[]
+    y_szamjegyek=[]
+    while x>0:
+        k=x%10
+        if k not in x_szamjegyek:
+            x_szamjegyek.append(k)
+        x=x//10
+    while y>0:
+        h=y%10
+        if h not in y_szamjegyek:
+            y_szamjegyek.append(h)
+        y=y//10
+    db=0
+    for i in x_szamjegyek:
+        if i in y_szamjegyek:
+            db+=1
+    if db>=1:
+        print("Baratok")
+    else:
+        print("Nem baratok")
+def main():
+    feladat_7(444,34)
+if __name__ == '__main__':
     main()
 
 def feladat_8(n):
@@ -85,6 +188,110 @@ def main():
 if __name__ == '__main__':
     main()
 
+def feladat_12():
+    try:
+        fajl=open("be1.txt",mode="r")
+        fajl2=open("ki.txt",mode="w")
+        db=1
+        for szam in fajl:
+            utolso=int(szam[-1])
+            k=len(szam)
+        for i in range(1,k-1):
+            if int(szam[i])==int(szam[i+1]):
+                db+=1
+        if db>=utolso:
+            fajl2.write("Igen tartalmaz")
+        elif db!=utolso:
+            fajl2.write("Nem tartalmaz")
+    except Exception as e:
+        print(e)
+    fajl.close()
+    fajl2.close()
+def main():
+    feladat_12()
+if __name__ == '__main__':
+    main()
+
+def feladat_13():
+    try:
+        fajl1=open("be1.txt",mode="r")
+        db=0
+        for szam in fajl1:
+            szam=szam.strip()
+            utolso=int(szam[-1])
+            k=len(szam)
+        for i in range(0,k-1):
+            for j in range(i+1,i+2):
+                if abs((int(szam[i])-int(szam[j])))<=utolso:
+                    db+=1
+        print(db)
+    except Exception as e:
+        print(e)
+    fajl1.close()
+def main():
+    feladat_13()
+if __name__ == '__main__':
+    main()
+
+def feladat_15():
+    try:
+        fajl=open("be.txt",mode="r")
+        fajl2=open("ki.txt",mode="w")
+        for sor in fajl:
+            if sor=="\n":
+                break
+            else:
+                fajl2.write("%s\n" % (sor.strip()))
+
+    except Exception as e:
+        print(e)
+    fajl.close()
+    fajl2.close()
+def main():
+    feladat_15()
+if __name__ == '__main__':
+    main()
+
+def feladat_16():
+    try:
+        fajl=open("be.txt",mode="r")
+        fajl2=open("ki.txt",mode="w")
+        for sor in fajl:
+            sor=sor.strip()
+            ls=sor.split(" ")
+            for i in ls:
+                if i.isupper():
+                    fajl2.write(i)
+                    return
+    except Exception as e:
+        print(e)
+    fajl.close()
+    fajl2.close()
+def main():
+    feladat_16()
+if __name__ == '__main__':
+    main()
+
+def feladat_17():
+    try:
+        fajl=open("be.txt",mode="r")
+        fajl2=open("ki.txt",mode="w")
+        for sor in fajl:
+            sor=sor.strip()
+            ls=sor.split(" ")
+            for i in ls:
+                if i.islower():
+                    fajl2.write(i)
+                    return
+    except Exception as e:
+        print(e)
+    fajl.close()
+    fajl2.close()
+def main():
+    feladat_17()
+if __name__ == '__main__':
+    main()
+
 def feladat_18():
     try:
         fajl1=open("be.txt",mode="r")
@@ -126,6 +333,28 @@ def main():
 if __name__ == '__main__':
     main()
 
+def feladat_20():
+    try:
+        fajl=open("be1.txt",encoding="UTF-8",mode="r")
+        fajl2=open("ki.txt",encoding="UTF-8",mode="w")
+        varos=""
+        lakos=100000
+        for sor in fajl:
+            sor=sor.strip()
+            v,o,l=sor.split(";")
+            if int(l)>int(lakos):
+                lakos=l
+                varos=v
+        fajl2.write(varos)
+    except Exception as e:
+        print(e)
+    fajl.close()
+    fajl2.close()
+def main():
+    feladat_20()
+if __name__ == '__main__':
+    main()
+
 def feladat_21():
     try:
         fajl=open("be3.txt",mode="r")
@@ -146,6 +375,28 @@ def feladat_21():
     fajl2.close()
 def main():
     feladat_21()
+if __name__ == '__main__':
+    main()
+
+def feladat_22():
+    try:
+        fajl=open("be1.txt",mode="r")
+        fajl2=open("ki.txt",mode="w")
+        nev=""
+        eredmeny=1000
+        for sor in fajl:
+            sor=sor.strip()
+            n,o,e=sor.split(";")
+            if float(e)<float(eredmeny):
+                eredmeny=e
+                nev=n
+        fajl2.write(nev)
+    except Exception as e:
+        print(e)
+    fajl.close()
+    fajl2.close()
+def main():
+    feladat_22()
 if __name__ == '__main__':
     main()
 
