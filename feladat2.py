@@ -260,7 +260,7 @@ def feladat_16():
             sor=sor.strip()
             ls=sor.split(" ")
             for i in ls:
-                if i.isupper():
+                if i[0].isupper() and i[1:].islower():
                     fajl2.write(i)
                     return
     except Exception as e:
